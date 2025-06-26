@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://your-username.github.io/kaloga-drywall",
+  "homepage": "https://egichuhi.github.io/kaloga-drywall",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -34,5 +34,11 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
-  }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/",
+    ".DS_Store",
+    ".env"
+  ]
 }
