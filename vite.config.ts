@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/kaloga-drywall/',
+  base: '/', // ← important fix!
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
