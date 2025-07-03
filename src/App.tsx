@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <Router basename="/kaloga-drywall">
+    <Router basename="/">
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
