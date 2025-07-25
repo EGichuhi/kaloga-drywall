@@ -27,7 +27,7 @@ const AboutPage = () => {
             <div className="md:flex items-center gap-12">
               <div className="md:w-1/2 mb-8 md:mb-0">
                 <img 
-                  src="https://images.pexels.com/photos/8134789/pexels-photo-8134789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  src="src/assets/images/Al1.png" 
                   alt="About Kaloga Drywall" 
                   className="rounded-lg shadow-md w-full h-auto"
                 />
