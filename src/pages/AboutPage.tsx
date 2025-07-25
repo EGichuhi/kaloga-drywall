@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, Users, Clock, Award, ArrowRight } from 'lucide-react';
+import Al1Image from '../assets/images/Al1.png'; 
 
 const AboutPage = () => {
   useEffect(() => {
@@ -27,7 +28,7 @@ const AboutPage = () => {
             <div className="md:flex items-center gap-12">
               <div className="md:w-1/2 mb-8 md:mb-0">
                 <img 
-                  src="src/assets/images/Al1.png" 
+                  src={Al1Image}
                   alt="About Kaloga Drywall" 
                   className="rounded-lg shadow-md w-full h-auto"
                 />
