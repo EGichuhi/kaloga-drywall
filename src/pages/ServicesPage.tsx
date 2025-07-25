@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import ServiceDetail from '../components/ServiceDetail';
+import popcornImage from '../assets/images/popcorn.jpg';
+import textureImage from '../assets/images/texture.jpg';
+import commercialImage from '../assets/images/commercial.jpg'; 
+import drywall2Image from '../assets/images/drywall2.jpg';
+import bna1Image from '../assets/images/bna1.jpg';
+import kitchenImage from '../assets/images/kitchen.png';
 
 const ServicesPage = () => {
   useEffect(() => {
@@ -115,7 +121,7 @@ const ServicesPage = () => {
                 "Sound-dampening solutions",
                 "Insulation installation"
               ]}
-              image="src/assets/images/bna-1.jpg"
+              image={bna1Image}
               reversed={false}
             />
             
@@ -130,7 +136,7 @@ const ServicesPage = () => {
                 "Corner bead replacement",
                 "Seamless matching of existing textures"
               ]}
-              image="src/assets/images/drywall2.jpg"
+              image={drywall2Image}
               reversed={true}
             />
             
@@ -145,7 +151,7 @@ const ServicesPage = () => {
                 "Custom artistic textures",
                 "Texture matching for repairs and additions"
               ]}
-              image="src/assets/images/texture.jpg"
+              image={textureImage}
               reversed={false}
             />
             
@@ -160,7 +166,7 @@ const ServicesPage = () => {
                 "Ceiling paint prep",
                 "LED lighting installation prep"
               ]}
-              image="https://images.pexels.com/photos/6474343/pexels-photo-6474343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              image={popcornImage}
               reversed={true}
             />
             
@@ -175,7 +181,7 @@ const ServicesPage = () => {
                 "Color consultation",
                 "Eco-friendly paint options"
               ]}
-              image="src/assets/images/kitchen.png"
+              image={kitchenImage}
               reversed={false}
             />
             
@@ -190,7 +196,7 @@ const ServicesPage = () => {
                 "Commercial-grade materials",
                 "After-hours scheduling available"
               ]}
-              image="https://images.pexels.com/photos/8134991/pexels-photo-8134991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              image={commercialImage}
               reversed={true}
             />
           </div>
