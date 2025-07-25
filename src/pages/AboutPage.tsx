@@ -37,13 +37,13 @@ const AboutPage = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
                 <div className="w-16 h-1 bg-yellow mb-6"></div>
                 <p className="text-gray-700 mb-4">
-                  Founded in 2016, Kaloga Drywall has established itself as a leading drywall contractor serving residential and commercial clients throughout the region.
+                Founded in 2016, Kaloga Drywall has become a trusted small business serving Toronto and the GTA with personalized construction services.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  What began as a small family business has grown into a trusted company known for exceptional craftsmanship, reliability, and customer satisfaction. Our founder, Alex Kaloga, brought over a decade of industry experience when he established the company with a mission to deliver superior drywall services.
+                What started as a modest venture has grown into a reliable name known for quality, attention to detail, and outstanding customer care. Our founder, Alex Kaloga, launched the business with 10 years of expertise and a passion for delivering exceptional service.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Today, our team of skilled professionals continues that tradition of excellence, bringing expertise and dedication to every project, big or small.
+                Today, our dedicated team upholds that commitment, bringing skill and care to every project, ensuring satisfaction for every client, no matter the size of the job.
                 </p>
                 <div className="mt-6">
                   <Link 
