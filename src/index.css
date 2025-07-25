@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --teal: #0d6164;
+  --yellow: #ffde59;
+  --light-gray: #f4f4f4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-gray-800 antialiased;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+}
+
+/* Custom colors */
+.bg-teal {
+  background-color: var(--teal);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.bg-light-gray {
+  background-color: var(--light-gray);
+}
+
+.text-teal {
+  color: var(--teal);
+}
+
+.text-yellow {
+  color: var(--yellow);
+}
+
+.border-teal {
+  border-color: var(--teal);
+}
+
+.border-yellow {
+  border-color: var(--yellow);
+}
+
+.hover\:bg-teal-700:hover {
+  background-color: #095052;
+}
+
+.hover\:bg-yellow-400:hover {
+  background-color: #ffd324;
+}
+
+.hover\:text-teal:hover {
+  color: var(--teal);
+}
+
+.hover\:text-yellow:hover {
+  color: var(--yellow);
+}
+
+.hover\:border-yellow:hover {
+  border-color: var(--yellow);
+}
+
+.fill-yellow {
+  fill: var(--yellow);
+}
+
+/* Transitions and animations */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
