@@ -161,8 +161,8 @@ const ServicesPage = () => {
               features={[
                 "Complete popcorn texture removal",
                 "Ceiling repair and re-texturing",
-                "Asbestos testing available",
-                "Dust containment system",
+                "Smooth ceiling finish",
+                "Preparation for painting",
                 "Ceiling paint prep",
                 "LED lighting installation prep"
               ]}
