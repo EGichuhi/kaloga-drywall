@@ -71,29 +71,32 @@ const handleSubmit = async (e: React.FormEvent) => {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        address: formData.address,
-        city: formData.city,
-        state: formData.state,
-        zip: formData.zip,
+        address: formData.address || 'Not provided',
+        city: formData.city || 'Not provided',
+        state: formData.state || 'Not provided',
+        zip: formData.zip || 'Not provided',
         service_type: formData.serviceType,
         project_description: formData.projectDescription,
-        timeline: formData.projectTimeline,
-        budget: formData.budget,
-        how_heard: formData.howDidYouHear,
-        to_email: 'info@kalogadrywall.com'
+        timeline: formData.projectTimeline || 'Not specified',
+        budget: formData.budget || 'Not specified',
+        how_heard: formData.howDidYouHear || 'Not specified'
       };
       
       await emailjs.send(serviceID, templateID, templateParams, publicKey);
       
+      // Show success message
       setIsSubmitted(true);
+      
+      // Reset form
       setFormData({
         name: '', email: '', phone: '', address: '', city: '', 
         state: '', zip: '', serviceType: '', projectDescription: '', 
         projectTimeline: '', budget: '', howDidYouHear: ''
       });
+      
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('Sorry, there was an error sending your request. Please try again.');
+      alert('Sorry, there was an error sending your request. Please try again or call us directly at (416) 786-3541.');
     }
   }
 };
