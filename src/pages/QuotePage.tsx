@@ -63,9 +63,9 @@ const handleSubmit = async (e: React.FormEvent) => {
   if (validateForm()) {
     try {
       // EmailJS configuration (you'll get these from your EmailJS dashboard)
-      const serviceID = service_bfqi75h;
-      const templateID = template_s7v7cd6;
-      const publicKey = OI-Te6SPHn4FSg9IK;
+      const serviceID = 'service_bfqi75h';
+      const templateID = 'template_s7v7cd6';
+      const publicKey = 'OI-Te6SPHn4FSg9IK';
       
       const templateParams = {
         to_email: 'info@kalogadrywall.com', 
