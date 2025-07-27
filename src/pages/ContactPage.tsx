@@ -45,20 +45,31 @@ const ContactPage = () => {
     }
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (validateForm()) {
-      setIsSubmitted(true);
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (validateForm()) {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setErrors({});
+      } else {
+        console.error('Failed to send message');
+        // You might want to show an error message to user
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle network errors
     }
-  };
+  }
+};
 
   return (
     <div className="min-h-screen pt-24 pb-20">
@@ -83,7 +94,7 @@ const ContactPage = () => {
               </div>
               <h3 className="font-semibold mb-2">Phone</h3>
               <a 
-                href="tel:+15551234567" 
+                href="tel:+14167863541" 
                 className="text-gray-600 hover:text-teal transition-colors duration-200"
               >
                 (416) 786-3541
