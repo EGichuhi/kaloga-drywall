@@ -58,36 +58,40 @@ const QuotePage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (validateForm()) {
-      try {
-        // Simulate API call to Frappe ERPNext
-        // In a real implementation, this would be a call to a backend service that integrates with Frappe
-        console.log('Sending quote request to Frappe ERPNext:', formData);
-        
-        // Simulate successful submission
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        setIsSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          address: '',
-          city: '',
-          state: '',
-          zip: '',
-          serviceType: '',
-          projectDescription: '',
-          projectTimeline: '',
-          budget: '',
-          howDidYouHear: '',
-        });
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting your quote request. Please try again.');
-      }
-    }
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  if (validateForm()) {
+    // Create mailto link with all form data
+    const subject = encodeURIComponent(`Quote Request - ${formData.serviceType || 'Drywall Service'}`);
+    const body = encodeURIComponent(
+      `QUOTE REQUEST DETAILS\n\n` +
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n\n` +
+      `PROJECT LOCATION:\n` +
+      `Address: ${formData.address || 'Not provided'}\n` +
+      `City: ${formData.city || 'Not provided'}\n` +
+      `State: ${formData.state || 'Not provided'}\n` +
+      `ZIP: ${formData.zip || 'Not provided'}\n\n` +
+      `SERVICE TYPE: ${formData.serviceType}\n\n` +
+      `PROJECT DESCRIPTION:\n${formData.projectDescription}\n\n` +
+      `TIMELINE: ${formData.projectTimeline || 'Not specified'}\n` +
+      `BUDGET: ${formData.budget || 'Not specified'}\n` +
+      `HOW THEY HEARD ABOUT US: ${formData.howDidYouHear || 'Not specified'}\n\n` +
+      `---\nThis quote request was submitted through the website contact form.`
+    );
+    
+    // Replace with your business email
+    const mailtoLink = `mailto:info@kalogadrywall.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    setIsSubmitted(true);
+  }
+};
 
   if (isSubmitted) {
     return (
