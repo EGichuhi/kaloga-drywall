@@ -45,29 +45,25 @@ const ContactPage = () => {
     }
   };
   
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
   e.preventDefault();
   if (validateForm()) {
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      
-      if (response.ok) {
-        setIsSubmitted(true);
-        // Reset form
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setErrors({});
-      } else {
-        console.error('Failed to send message');
-        // You might want to show an error message to user
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle network errors
-    }
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject || 'Contact Form Message');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    
+    // Replace with your actual email address
+    const mailtoLink = `mailto:kaloga_drywall@outlook.com?subject=${subject}&body=${body}`;
+    
+    // Open user's email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    setIsSubmitted(true);
   }
 };
 
