@@ -56,9 +56,6 @@ const QuotePage = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   
   if (validateForm()) {
