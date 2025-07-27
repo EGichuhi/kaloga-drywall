@@ -57,8 +57,8 @@ const QuotePage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-const handleSubmit = async (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   
   if (validateForm()) {
@@ -90,9 +90,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     
     // Show success message
     setIsSubmitted(true);
-  }
-};
-
+    }
+  }; 
   if (isSubmitted) {
     return (
       <div className="min-h-screen py-20 px-4">
