@@ -58,33 +58,44 @@ const QuotePage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) return;
+    if (validateForm()) {
+      try {
+        const templateParams = {
+          to_email: 'info@kalogadrywall.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          address: formData.address || 'Not provided',
+          city: formData.city || 'Not provided',
+          state: formData.state || 'Not provided',
+          zip: formData.zip || 'Not provided',
+          service_type: formData.serviceType,
+          project_description: formData.projectDescription,
+          timeline: formData.projectTimeline || 'Not specified',
+          budget: formData.budget || 'Not specified',
+          how_heard: formData.howDidYouHear || 'Not specified'
+        };
 
-    try {
-      await emailjs.send(
-        'sservice_bfqi75h', // Replace with your service ID
-        'template_s7v7cd6', // Replace with your template ID
-        formData,
-        'OI-Te6SPHn4FSg9IK' // Replace with your public key
-      );
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        serviceType: '',
-        projectDescription: '',
-        projectTimeline: '',
-        budget: '',
-        howDidYouHear: '',
-      });
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      alert('There was an error submitting your request. Please try again later.');
+        const result = await emailjs.send(
+          'service_bfqi75h',
+          'template_s7v7cd6', 
+          templateParams,
+          'pOI-Te6SPHn4FSg9IK' // Replace with your public key if needed
+        );
+        
+        console.log('SUCCESS!', result.status, result.text);
+        
+        setIsSubmitted(true);
+        setFormData({
+          name: '', email: '', phone: '', address: '', city: '', 
+          state: '', zip: '', serviceType: '', projectDescription: '', 
+          projectTimeline: '', budget: '', howDidYouHear: ''
+        });
+        
+      } catch (error) {
+        console.error('FAILED...', error);
+        alert('Sorry, there was an error sending your request. Please try again or call us directly at (416) 786-3541.');
+      }
     }
   };
   
