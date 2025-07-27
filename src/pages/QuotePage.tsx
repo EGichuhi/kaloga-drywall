@@ -60,8 +60,13 @@ const QuotePage = () => {
     
     if (validateForm()) {
       try {
+        // Replace these with your actual EmailJS credentials
+        const serviceId = 'service_bfqi75h'; // Your Service ID
+        const templateId = 'template_iejfxyq'; // Your Template ID  
+        const publicKey = 'OI-Te6SPHn4FSg9IK'; // Your Public Key
+        
+        // Prepare the email data
         const templateParams = {
-          to_email: 'info@kalogadrywall.com',
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
@@ -75,30 +80,46 @@ const QuotePage = () => {
           budget: formData.budget || 'Not specified',
           how_heard: formData.howDidYouHear || 'Not specified'
         };
-
-        const result = await emailjs.send(
-          'service_bfqi75h',
-          'template_s7v7cd6', 
+        
+        console.log('Sending email with params:', templateParams);
+        
+        // Send the email
+        const response = await emailjs.send(
+          serviceId,
+          templateId,
           templateParams,
-          'pOI-Te6SPHn4FSg9IK' // Replace with your public key if needed
+          publicKey
         );
         
-        console.log('SUCCESS!', result.status, result.text);
+        console.log('Email sent successfully!', response.status, response.text);
         
+        // Show success message
         setIsSubmitted(true);
+        
+        // Reset form
         setFormData({
-          name: '', email: '', phone: '', address: '', city: '', 
-          state: '', zip: '', serviceType: '', projectDescription: '', 
-          projectTimeline: '', budget: '', howDidYouHear: ''
+          name: '', 
+          email: '', 
+          phone: '', 
+          address: '', 
+          city: '', 
+          state: '', 
+          zip: '', 
+          serviceType: '', 
+          projectDescription: '', 
+          projectTimeline: '', 
+          budget: '', 
+          howDidYouHear: ''
         });
         
       } catch (error) {
-        console.error('FAILED...', error);
+        console.error('Failed to send email:', error);
+        
+        // Show user-friendly error message
         alert('Sorry, there was an error sending your request. Please try again or call us directly at (416) 786-3541.');
       }
     }
   };
-  
 
   if (isSubmitted) {
     return (
