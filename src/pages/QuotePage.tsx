@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, Phone, Mail, Clock } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const QuotePage = () => {
   useEffect(() => {
@@ -55,40 +56,47 @@ const QuotePage = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   
   if (validateForm()) {
-    // Create mailto link with all form data
-    const subject = encodeURIComponent(`Quote Request - ${formData.serviceType || 'Drywall Service'}`);
-    const body = encodeURIComponent(
-      `QUOTE REQUEST DETAILS\n\n` +
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n\n` +
-      `PROJECT LOCATION:\n` +
-      `Address: ${formData.address || 'Not provided'}\n` +
-      `City: ${formData.city || 'Not provided'}\n` +
-      `State: ${formData.state || 'Not provided'}\n` +
-      `ZIP: ${formData.zip || 'Not provided'}\n\n` +
-      `SERVICE TYPE: ${formData.serviceType}\n\n` +
-      `PROJECT DESCRIPTION:\n${formData.projectDescription}\n\n` +
-      `TIMELINE: ${formData.projectTimeline || 'Not specified'}\n` +
-      `BUDGET: ${formData.budget || 'Not specified'}\n` +
-      `HOW THEY HEARD ABOUT US: ${formData.howDidYouHear || 'Not specified'}\n\n` +
-      `---\nThis quote request was submitted through the website contact form.`
-    );
-    
-    // Replace with your business email
-    const mailtoLink = `mailto:info@kalogadrywall.com?subject=${subject}&body=${body}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message
-    setIsSubmitted(true);
+    try {
+      // EmailJS configuration (you'll get these from your EmailJS dashboard)
+      const serviceID = 'Yservice_bfqi75h';
+      const templateID = 'template_s7v7cd6';
+      const publicKey = 'OI-Te6SPHn4FSg9IK';
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zip,
+        service_type: formData.serviceType,
+        project_description: formData.projectDescription,
+        timeline: formData.projectTimeline,
+        budget: formData.budget,
+        how_heard: formData.howDidYouHear,
+        to_email: 'info@kalogadrywall.com'
+      };
+      
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      
+      setIsSubmitted(true);
+      setFormData({
+        name: '', email: '', phone: '', address: '', city: '', 
+        state: '', zip: '', serviceType: '', projectDescription: '', 
+        projectTimeline: '', budget: '', howDidYouHear: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Sorry, there was an error sending your request. Please try again.');
     }
-  }; 
+  }
+};
   if (isSubmitted) {
     return (
       <div className="min-h-screen py-20 px-4">
