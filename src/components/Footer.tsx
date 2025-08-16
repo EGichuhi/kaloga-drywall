@@ -13,18 +13,11 @@ const Footer = () => {
           <div className="space-y-4">
             <Logo />
             <p className="text-gray-400 mt-4">
-              Professional drywall services with over 15 years of experience. Quality workmanship guaranteed.
+              Professional drywall services with over 10 years of experience. Quality workmanship guaranteed.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="bg-teal hover:bg-teal-700 p-2 rounded-full transition-colors duration-300">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="bg-teal hover:bg-teal-700 p-2 rounded-full transition-colors duration-300">
-                <Instagram size={18} />
-              </a>
-              <a href="#" className="bg-teal hover:bg-teal-700 p-2 rounded-full transition-colors duration-300">
-                <Twitter size={18} />
-              </a>
+              <a href="https://www.tiktok.com/@soninke.ekninos" className="bg-teal hover:bg-teal-700 p-2 rounded-full transition-colors duration-300">
+                <Tiktok size={18} />
             </div>
           </div>
 
@@ -44,11 +37,6 @@ const Footer = () => {
               <li>
                 <Link to="/services" className="text-gray-400 hover:text-yellow flex items-center transition-colors duration-200">
                   <ArrowRight size={14} className="mr-2" /> Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/portfolio" className="text-gray-400 hover:text-yellow flex items-center transition-colors duration-200">
-                  <ArrowRight size={14} className="mr-2" /> Portfolio
                 </Link>
               </li>
               <li>
@@ -105,12 +93,12 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-yellow mt-1 flex-shrink-0" />
-                <span className="text-gray-400">123 Construction Ave, Building City, ST 12345</span>
+                <span className="text-gray-400">Toronto, ON, Canada</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-yellow flex-shrink-0" />
-                <a href="tel:+15551234567" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  (555) 123-4567
+                <a href="tel:+4167863541" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  (416) 786-3541
                 </a>
               </li>
               <li className="flex items-center space-x-3">
