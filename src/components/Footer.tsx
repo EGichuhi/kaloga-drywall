@@ -16,9 +16,6 @@ const Footer = () => {
               Professional drywall services with over 10 years of experience. Quality workmanship guaranteed.
             </p>
             <div className="flex space-x-4 mt-6">
-             <a href="https://www.tiktok.com/@soninke.ekninos" className="bg-teal hover:bg-teal-700 p-2 rounded-full transition-colors duration-300">
-  <Tiktok size={18} />
-</a>
             </div>
           </div>
 
