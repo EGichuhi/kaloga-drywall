@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://eunice.github.io/kaloga-drywall",
+  "homepage": "https://kalogadrywall.com",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
