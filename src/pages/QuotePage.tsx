@@ -422,7 +422,7 @@ const QuotePage = () => {
                 </div>
               </form>
             </div>
-            
+            <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69f941133c2ab8cb1136a409" data-source="WEB_USER"></script>
             {/* Info Section */}
             <div className="md:w-1/3 bg-teal p-8 text-white">
               <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
